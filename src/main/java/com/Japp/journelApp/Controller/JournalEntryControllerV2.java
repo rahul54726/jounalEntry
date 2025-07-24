@@ -46,7 +46,7 @@ public class JournalEntryControllerV2 {
         Optional<JournalEntry> journalEntry = journalEntryService.findById(myId);
         return journalEntry.map(entry -> new ResponseEntity<>(entry, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-    @DeleteMapping("/{username}/{myId}")
+    @DeleteMapping("/{userName}/{myId}")
     public ResponseEntity<?> deleteEntryById(@PathVariable ObjectId myId,@PathVariable String userName){
         journalEntryService.deleteById(myId,userName);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
